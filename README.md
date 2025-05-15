@@ -30,3 +30,11 @@ Format `guest:guest@localhost:5672` merupakan bagian dari **URL koneksi** ke ser
 * **`5672`**: Ini adalah **port default** yang digunakan oleh RabbitMQ untuk menerima koneksi berbasis AMQP.
 
 Secara keseluruhan, `guest:guest@localhost:5672` berarti: terhubung ke server RabbitMQ lokal yang berjalan di port 5672, menggunakan kredensial default "guest" sebagai username dan password.
+
+# Simulation slow subscriber
+
+<div align="center">
+    <img src="assets/images/rabbitmq.jpg" alt="rabbitmq"/>
+</div>
+
+Queued messages pada message broker akan bertambah karena adanya delay yang diberikan, sehingga publisher lebih cepat mengirim dibandingkan subscriber yang menerima. Pada kasus saya, banyaknya queued messages pada message broker paling banyak menyentuh 21 untuk 6 kali melakukan run Publisher.
