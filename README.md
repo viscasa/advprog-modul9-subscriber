@@ -38,3 +38,17 @@ Secara keseluruhan, `guest:guest@localhost:5672` berarti: terhubung ke server Ra
 </div>
 
 Queued messages pada message broker akan bertambah karena adanya delay yang diberikan, sehingga publisher lebih cepat mengirim dibandingkan subscriber yang menerima. Pada kasus saya, banyaknya queued messages pada message broker paling banyak menyentuh 21 untuk 6 kali melakukan run Publisher.
+
+# Reflection and Running at least three subscribers
+
+<div align="center">
+    <img src="assets/images/rabbitmq2.jpg" alt="rabbitmq"/>
+</div>
+
+<div align="center">
+    <img src="assets/images/terminal.jpg" alt="rabbitmq"/>
+</div>
+
+Dapat dilihat kalau pada tiap subscriber mendapatkan data yang berbeda-beda saat publisher mengirimkan banyak data ke message queue. Ini karena tiap subscriber berfungsi seperti aplikasi nya masing-masing sehingga terpisah saat mengambil data dari message queue. Ketika data sudah terambil dari message queue, maka message akan hilang dan aplikasi lain tidak bisa menggunakannya.
+
+Tanpa mengubah kode dari program, kita bisa memperoleh hasil yang berbeda dengan mengubah konfigurasi message broker atau jumlah dari subscriber yang berjalan. Inilah yang disebut dengan event driven.
